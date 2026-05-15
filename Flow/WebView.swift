@@ -187,7 +187,7 @@ struct WebView: UIViewRepresentable {
                       let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
                 else {
                     // Tell JS the exchange failed
-                    await webView?.evaluateJavaScript("window.__cognitoTokenResult && window.__cognitoTokenResult(null);")
+                    webView?.evaluateJavaScript("window.__cognitoTokenResult && window.__cognitoTokenResult(null);", completionHandler: nil)
                     return
                 }
 
@@ -203,10 +203,10 @@ struct WebView: UIViewRepresentable {
                     refresh_token:\(jsonString(refreshToken))
                 });
                 """
-                await webView?.evaluateJavaScript(js)
+                webView?.evaluateJavaScript(js, completionHandler: nil)
 
             } catch {
-                await webView?.evaluateJavaScript("window.__cognitoTokenResult && window.__cognitoTokenResult(null);")
+                webView?.evaluateJavaScript("window.__cognitoTokenResult && window.__cognitoTokenResult(null);", completionHandler: nil)
             }
         }
 
