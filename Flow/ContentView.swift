@@ -50,15 +50,7 @@ struct ContentView: View {
                 .transition(.move(edge: .bottom).combined(with: .opacity))
             }
 
-            BottomBar(
-                canGoBack: canGoBack,
-                canGoForward: canGoForward,
-                isLoading: isLoading,
-                onBack:    { webViewRef?.goBack() },
-                onForward: { webViewRef?.goForward() },
-                onReload:  { webViewRef?.reload() },
-                onHome:    { webViewRef?.load(URLRequest(url: dashboardURL)) }
-            )
+
         }
         .statusBar(hidden: false)
         .animation(.easeInOut(duration: 0.2), value: isLoading)

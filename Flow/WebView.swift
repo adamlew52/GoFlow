@@ -1,5 +1,6 @@
 import SwiftUI
 import WebKit
+import AuthenticationServices
 
 // MARK: - WebView
 
@@ -32,6 +33,31 @@ struct WebView: UIViewRepresentable {
 
         // ── Message handler: JS → Swift userId registration ─────
         config.userContentController.add(context.coordinator, name: "setUserId")
+
+        // ── Patch: intercept doLogin() to use native ASWebAuthenticationSession ──
+        // WKWebView can't complete Cognito's hosted UI (no shared cookie store).
+        // We replace doLogin() so Swift handles the OAuth flow natively, then
+        // passes the auth code back to the page's handleOAuthCallback.
+        let loginPatch = WKUserScript(
+            source: """
+            (function() {
+                function patchLogin() {
+                    if (typeof doLogin === 'undefined') { setTimeout(patchLogin, 50); return; }
+                    window.doLogin = function() {
+                        window.webkit.messageHandlers.nativeLogin.postMessage({
+                            loginUrl: LOGIN_URL,
+                            redirectUri: REDIRECT_URI
+                        });
+                    };
+                }
+                patchLogin();
+            })();
+            """,
+            injectionTime: .atDocumentEnd,
+            forMainFrameOnly: true
+        )
+        config.userContentController.addUserScript(loginPatch)
+        config.userContentController.add(context.coordinator, name: "nativeLogin")
 
         // ── No-zoom viewport ─────────────────────────────────────
         let noZoom = WKUserScript(
@@ -124,7 +150,8 @@ struct WebView: UIViewRepresentable {
     // MARK: - Coordinator
 
     class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate,
-                       WKScriptMessageHandler, UIGestureRecognizerDelegate {
+                       WKScriptMessageHandler, UIGestureRecognizerDelegate,
+                       ASWebAuthenticationPresentationContextProviding {
         var parent: WebView
         var refreshControl: UIRefreshControl?
         weak var webView: WKWebView?
@@ -134,6 +161,13 @@ struct WebView: UIViewRepresentable {
         private let clientId      = "2edr9uguhogu2sp507ck4ddbh4"
 
         init(_ parent: WebView) { self.parent = parent }
+
+        func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+            UIApplication.shared.connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .flatMap { $0.windows }
+                .first { $0.isKeyWindow } ?? ASPresentationAnchor()
+        }
 
         // MARK: UIGestureRecognizerDelegate (double-tap zoom blocker)
         func gestureRecognizer(_ gr: UIGestureRecognizer,
@@ -146,6 +180,20 @@ struct WebView: UIViewRepresentable {
         // MARK: WKScriptMessageHandler
         func userContentController(_ ucc: WKUserContentController, didReceive message: WKScriptMessage) {
             switch message.name {
+
+            case "nativeLogin":
+                guard let body = message.body as? [String: String],
+                      let loginUrlStr = body["loginUrl"],
+                      let redirectUriStr = body["redirectUri"],
+                      let loginUrl = URL(string: loginUrlStr),
+                      let redirectScheme = URL(string: redirectUriStr)?.scheme
+                else { return }
+                DispatchQueue.main.async {
+                    self.startNativeLogin(loginUrl: loginUrl,
+                                         callbackScheme: redirectScheme,
+                                         redirectUri: redirectUriStr,
+                                         webView: message.webView)
+                }
 
             case "cognitoTokenExchange":
                 guard let body = message.body as? [String: String],
@@ -208,6 +256,39 @@ struct WebView: UIViewRepresentable {
             } catch {
                 webView?.evaluateJavaScript("window.__cognitoTokenResult && window.__cognitoTokenResult(null);", completionHandler: nil)
             }
+        }
+
+        // Opens Cognito's hosted login in ASWebAuthenticationSession (has shared cookie
+        // store, can complete SSO) then hands the auth code back to the page.
+        private func startNativeLogin(loginUrl: URL, callbackScheme: String,
+                                      redirectUri: String, webView: WKWebView?) {
+            let session = ASWebAuthenticationSession(
+                url: loginUrl,
+                callbackURLScheme: callbackScheme
+            ) { [weak self, weak webView] callbackURL, error in
+                guard let self, error == nil,
+                      let callbackURL,
+                      let code = URLComponents(url: callbackURL, resolvingAgainstBaseURL: false)?
+                          .queryItems?.first(where: { $0.name == "code" })?.value
+                else { return }
+
+                // Exchange the code natively (same CORS-free path as before)
+                Task {
+                    await self.exchangeCodeForTokens(code: code,
+                                                     redirectUri: redirectUri,
+                                                     webView: webView)
+                    // After tokens are stored, reload the page so boot() runs again
+                    DispatchQueue.main.async {
+                        webView?.evaluateJavaScript(
+                            "localStorage.getItem('id_token') && window.location.reload();",
+                            completionHandler: nil
+                        )
+                    }
+                }
+            }
+            session.presentationContextProvider = self
+            session.prefersEphemeralWebBrowserSession = false // keep cookies for SSO
+            session.start()
         }
 
         private func jsonString(_ s: String) -> String {
