@@ -120,7 +120,7 @@ struct WebView: UIViewRepresentable {
 
             case "setUserId":
                 if let email = message.body as? String {
-                    print("[Flow] user: \(email)")
+                    print("[Satyr] user: \(email)")
                 }
 
             default: break
