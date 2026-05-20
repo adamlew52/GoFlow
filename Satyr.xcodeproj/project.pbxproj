@@ -14,7 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A000 /* Flow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A000 /* SATYR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SATYR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A001 /* FlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowApp.swift; sourceTree = "<group>"; };
 		A002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A003 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
@@ -36,12 +36,12 @@
 		GRPPROD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A000 /* Flow.app */,
+				A000 /* SATYR.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		GRPSRC /* Flow */ = {
+		GRPSRC /* Satyr */ = {
 			isa = PBXGroup;
 			children = (
 				A001 /* FlowApp.swift */,
@@ -50,13 +50,13 @@
 				A004 /* Assets.xcassets */,
 				A005 /* Info.plist */,
 			);
-			path = Flow;
+			path = Satyr;
 			sourceTree = "<group>";
 		};
 		MAIN = {
 			isa = PBXGroup;
 			children = (
-				GRPSRC /* Flow */,
+				GRPSRC /* Satyr */,
 				GRPPROD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,9 +64,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		TARGET1 /* Flow */ = {
+		TARGET1 /* SATYR */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CFGLIST1 /* Build configuration list for PBXNativeTarget "Flow" */;
+			buildConfigurationList = CFGLIST1 /* Build configuration list for PBXNativeTarget "SATYR" */;
 			buildPhases = (
 				C003 /* Sources */,
 				C001 /* Frameworks */,
@@ -76,9 +76,9 @@
 			);
 			dependencies = (
 			);
-			name = Flow;
+			name = SATYR;
 			productName = Flow;
-			productReference = A000 /* Flow.app */;
+			productReference = A000 /* SATYR.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -96,7 +96,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CFGLISTPROJ /* Build configuration list for PBXProject "Flow" */;
+			buildConfigurationList = CFGLISTPROJ /* Build configuration list for PBXProject "Satyr" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -109,7 +109,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				TARGET1 /* Flow */,
+				TARGET1 /* SATYR */,
 			);
 		};
 /* End PBXProject section */
@@ -250,16 +250,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 9HJ53KLL68;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Flow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = SENSARO.FLOW;
+				PRODUCT_BUNDLE_IDENTIFIER = SENSARO.SATYR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -271,16 +274,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 9HJ53KLL68;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Flow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = SENSARO.FLOW;
+				PRODUCT_BUNDLE_IDENTIFIER = SENSARO.SATYR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -290,7 +296,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CFGLIST1 /* Build configuration list for PBXNativeTarget "Flow" */ = {
+		CFGLIST1 /* Build configuration list for PBXNativeTarget "SATYR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CFG_TGT_DBG /* Debug */,
@@ -299,7 +305,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CFGLISTPROJ /* Build configuration list for PBXProject "Flow" */ = {
+		CFGLISTPROJ /* Build configuration list for PBXProject "Satyr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CFG_PROJ_DBG /* Debug */,
