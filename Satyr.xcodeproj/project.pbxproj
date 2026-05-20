@@ -16,7 +16,7 @@
 
 /* Begin PBXFileReference section */
 		7AB1EE332FBE1D1400093BD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7AB1EE352FBE1D6A00093BD3 /* SATYR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = SATYR.app; path = "/Users/alew/Documents/Apps/Satyr/build/Debug-iphoneos/SATYR.app"; sourceTree = "<absolute>"; };
+		7AB1EE362FBE1E1300093BD3 /* SATYR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SATYR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A001 /* SatyrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatyrApp.swift; sourceTree = "<group>"; };
 		A002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A003 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
@@ -50,6 +50,7 @@
 			isa = PBXGroup;
 			children = (
 				GRPSRC /* Satyr */,
+				7AB1EE362FBE1E1300093BD3 /* SATYR.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,7 +71,7 @@
 			);
 			name = SATYR;
 			productName = Flow;
-			productReference = 7AB1EE352FBE1D6A00093BD3 /* SATYR.app */;
+			productReference = 7AB1EE362FBE1E1300093BD3 /* SATYR.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -247,7 +248,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9HJ53KLL68;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Flow/Info.plist;
@@ -272,7 +273,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9HJ53KLL68;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Flow/Info.plist;
