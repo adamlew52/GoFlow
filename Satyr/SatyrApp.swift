@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct FlowApp: App {
+struct SatyrApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
