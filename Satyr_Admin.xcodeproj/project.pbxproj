@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7AB594CA2FDB637D004089EA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AB594C92FDB637C004089EA /* Info.plist */; };
 		B001 /* SatyrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A001 /* SatyrApp.swift */; };
 		B002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A002 /* ContentView.swift */; };
 		B003 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A003 /* WebView.swift */; };
@@ -112,7 +111,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AB594CA2FDB637D004089EA /* Info.plist in Resources */,
 				B004 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
