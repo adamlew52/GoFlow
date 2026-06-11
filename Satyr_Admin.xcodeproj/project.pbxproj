@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7AB1EE372FBE1F0500093BD3 /* Satyr Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Satyr Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AB1EE372FBE1F0500093BD3 /* Satyr_Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Satyr_Admin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB594C92FDB637C004089EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A001 /* SatyrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatyrApp.swift; sourceTree = "<group>"; };
 		A002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,7 +34,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		GRPSRC /* Satyr Admin */ = {
+		GRPSRC /* Satyr_Admin */ = {
 			isa = PBXGroup;
 			children = (
 				A001 /* SatyrApp.swift */,
@@ -43,23 +43,23 @@
 				A004 /* Assets.xcassets */,
 				7AB594C92FDB637C004089EA /* Info.plist */,
 			);
-			path = "Satyr Admin";
+			path = Satyr_Admin;
 			sourceTree = "<group>";
 		};
 		MAIN = {
 			isa = PBXGroup;
 			children = (
-				GRPSRC /* Satyr Admin */,
-				7AB1EE372FBE1F0500093BD3 /* Satyr Admin.app */,
+				GRPSRC /* Satyr_Admin */,
+				7AB1EE372FBE1F0500093BD3 /* Satyr_Admin.app */,
 			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		TARGET1 /* Satyr Admin */ = {
+		TARGET1 /* Satyr_Admin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CFGLIST1 /* Build configuration list for PBXNativeTarget "Satyr Admin" */;
+			buildConfigurationList = CFGLIST1 /* Build configuration list for PBXNativeTarget "Satyr_Admin" */;
 			buildPhases = (
 				C003 /* Sources */,
 				C001 /* Frameworks */,
@@ -69,9 +69,9 @@
 			);
 			dependencies = (
 			);
-			name = "Satyr Admin";
+			name = Satyr_Admin;
 			productName = Flow;
-			productReference = 7AB1EE372FBE1F0500093BD3 /* Satyr Admin.app */;
+			productReference = 7AB1EE372FBE1F0500093BD3 /* Satyr_Admin.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -89,7 +89,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CFGLISTPROJ /* Build configuration list for PBXProject "Satyr Admin" */;
+			buildConfigurationList = CFGLISTPROJ /* Build configuration list for PBXProject "Satyr_Admin" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -102,7 +102,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				TARGET1 /* Satyr Admin */,
+				TARGET1 /* Satyr_Admin */,
 			);
 		};
 /* End PBXProject section */
@@ -164,6 +164,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 9HJ53KLL68;
+				DONT_GENERATE_INFOPLIST_FILE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -222,6 +223,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 9HJ53KLL68;
+				DONT_GENERATE_INFOPLIST_FILE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -254,7 +256,7 @@
 				DONT_GENERATE_INFOPLIST_FILE = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Satyr Admin/Info.plist";
+				INFOPLIST_FILE = Satyr_Admin/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Satyr Admin";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Used to connect to the admin dashboard on your local network if needed.";
@@ -285,7 +287,7 @@
 				DONT_GENERATE_INFOPLIST_FILE = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Satyr Admin/Info.plist";
+				INFOPLIST_FILE = Satyr_Admin/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Satyr Admin";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Used to connect to the admin dashboard on your local network if needed.";
@@ -306,7 +308,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CFGLIST1 /* Build configuration list for PBXNativeTarget "Satyr Admin" */ = {
+		CFGLIST1 /* Build configuration list for PBXNativeTarget "Satyr_Admin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CFG_TGT_DBG /* Debug */,
@@ -315,7 +317,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CFGLISTPROJ /* Build configuration list for PBXProject "Satyr Admin" */ = {
+		CFGLISTPROJ /* Build configuration list for PBXProject "Satyr_Admin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CFG_PROJ_DBG /* Debug */,
