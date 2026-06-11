@@ -15,7 +15,7 @@ extension Color {
 // MARK: - ContentView
 
 struct ContentView: View {
-    private let dashboardURL = URL(string: "https://www.sensaro.net/Mobile/SATYR/client/index.html")!
+    private let dashboardURL = URL(string: "https://www.sensaro.net/Mobile/SATYR/dashboard.html")!
 
     @State private var isLoading      = false
     @State private var errorMessage: String? = nil

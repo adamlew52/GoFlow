@@ -15,6 +15,7 @@
 
 /* Begin PBXFileReference section */
 		7AB1EE372FBE1F0500093BD3 /* SATYR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SATYR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AB47A402FBE23FD00789A45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A001 /* SatyrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatyrApp.swift; sourceTree = "<group>"; };
 		A002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A003 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
@@ -39,6 +40,7 @@
 				A002 /* ContentView.swift */,
 				A003 /* WebView.swift */,
 				A004 /* Assets.xcassets */,
+				7AB47A402FBE23FD00789A45 /* Info.plist */,
 			);
 			path = Satyr;
 			sourceTree = "<group>";
@@ -247,6 +249,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9HJ53KLL68;
+				DONT_GENERATE_INFOPLIST_FILE = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Satyr/Info.plist;
@@ -272,6 +275,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9HJ53KLL68;
+				DONT_GENERATE_INFOPLIST_FILE = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Satyr/Info.plist;
