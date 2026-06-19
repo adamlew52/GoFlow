@@ -203,6 +203,31 @@ struct WebView: UIViewRepresentable {
                 var m = document.querySelector('meta[name="viewport"]');
                 if (m) m.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
             """, completionHandler: nil)
+
+            // env(safe-area-inset-*) can read as 0 inside a WKWebView hosted by
+            // SwiftUI's .ignoresSafeArea(), even though the view visually sits
+            // under the notch/status bar. Push the real UIKit-measured insets in
+            // directly as CSS variables so page CSS can use them as a fallback.
+            applySafeAreaInsets(to: webView)
+            // safeAreaInsets can settle a beat after didFinish on first load;
+            // re-apply once more to be safe.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak webView] in
+                if let webView { self.applySafeAreaInsets(to: webView) }
+            }
+        }
+
+        private func applySafeAreaInsets(to webView: WKWebView) {
+            let insets = webView.safeAreaInsets
+            let js = """
+            (function() {
+                var r = document.documentElement.style;
+                r.setProperty('--native-safe-area-top', '\(insets.top)px');
+                r.setProperty('--native-safe-area-bottom', '\(insets.bottom)px');
+                r.setProperty('--native-safe-area-left', '\(insets.left)px');
+                r.setProperty('--native-safe-area-right', '\(insets.right)px');
+            })();
+            """
+            webView.evaluateJavaScript(js, completionHandler: nil)
         }
 
         func webView(_ webView: WKWebView, didFail _: WKNavigation!, withError error: Error) {
